@@ -1,12 +1,11 @@
-<script setup>
-const message = "Hello, GitHub Pages!";
-</script>
-
 <template>
   <div id="app">
-    <h1>{{ message }}</h1>
+    <router-view />
   </div>
 </template>
+
+<script setup>
+</script>
 
 <style>
 #app {
