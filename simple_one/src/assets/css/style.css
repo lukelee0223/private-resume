@@ -1,0 +1,120 @@
+/* ✅ 全站背景設定（固定+模糊+變暗） */
+body {
+    background: url('/images/background.png') center/cover no-repeat fixed;
+    position: relative;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  /* ✅ 添加模糊 + 降低亮度 */
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+    filter: brightness(0.7);
+    z-index: -1;
+  }
+  
+  /* ✅ 標題樣式 */
+  h1, h2 {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* ✅ 內文排版 */
+  p {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 20px;
+  }
+  
+  /* ✅ 導覽列（修正 RWD 問題） */
+  .site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(51, 51, 51, 0.7);
+    padding: 15px 20px;
+    transition: background 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  /* ✅ 滾動時，導覽列變深 */
+  .site-header.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  /* ✅ 選單（桌面版） */
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* ✅ 選單內連結 */
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* ✅ RWD - 漢堡選單 */
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* ✅ RWD - 小螢幕適應 */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+  
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.9);
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+  
+    /* ⚡️ 修正選單無法展開的問題 */
+    nav ul.open {
+      display: flex !important;
+      opacity: 1;
+    }
+  }
+  
+  /* ✅ RWD - 手機上的標題 & 內文縮小 */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  }
+  
