@@ -1,19 +1,20 @@
-import { createRouter, createWebHashHistory } from 'vue-router'; // ✅ 改用 Hash 模式
-
-import HomePage from '../views/HomePage.vue';
-import AboutPage from '../views/AboutPage.vue';
-import PortfolioPage from '../views/PortfolioPage.vue';
-import ContactPage from '../views/ContactPage.vue';
+import { createRouter, createWebHashHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import AboutView from '../views/AboutView.vue';
+import PortfolioView from '../views/PortfolioView.vue';
+import SkillView from '../views/SkillView.vue';
+import ContactView from '../views/ContactView.vue';
 
 const routes = [
-  { path: '/', component: HomePage },
-  { path: '/about', component: AboutPage },
-  { path: '/portfolio', component: PortfolioPage },
-  { path: '/contact', component: ContactPage }
+  { path: '/', component: HomeView },
+  { path: '/about', component: AboutView },
+  { path: '/portfolio', component: PortfolioView },
+  { path: '/skill', component: SkillView },
+  { path: '/contact', component: ContactView }
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(), // ✅ 確保 GitHub Pages 能夠正確運行
+  history: createWebHashHistory(),
   routes
 });
 
